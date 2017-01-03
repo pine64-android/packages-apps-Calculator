@@ -237,6 +237,13 @@ public class Calculator extends Activity
                 // Add left parenthesis after functions.
                 mFormulaEditText.append(((Button) view).getText() + "(");
                 break;
+            case R.id.op_add:
+                 //when sd card exist "custom_cases.xml", open test mode, check if Calculator's display TEST_MODE_KEY, then startup DragonFire application.
+                 String str = mFormulaEditText.getText().toString();
+                 if(TestModeManager.start(view.getContext(), str))  {
+                     onClear();
+                     break;
+                 }
             default:
                 mFormulaEditText.append(((Button) view).getText());
                 break;
